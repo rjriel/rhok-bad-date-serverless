@@ -421,7 +421,7 @@
                 "id": {
                     "type": "integer"
                 },
-                "submitter_id": {
+                "user_name": {
                     "type": "string"
                 },
                 "updated": {
@@ -468,8 +468,11 @@
                 },
                 "submitter_contact_method": {
                     "type": "string"
+                },
+                "comments": {
+                    "$ref": "#/definitions/Comment"
                 }
-               }
+            }
         },
         "User": {
             "type": "object",
@@ -478,6 +481,17 @@
                     "type": "string"
                 },
                 "password": {
+                    "type": "string"
+                }
+            }
+        },
+        "Comment": {
+            "type": "object",
+            "properties": {
+                "user_name": {
+                    "type": "string"
+                },
+                "comment_details": {
                     "type": "string"
                 }
             }
