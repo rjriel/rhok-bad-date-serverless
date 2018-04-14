@@ -1,0 +1,4 @@
+ACCESS_KEY # the AWS access key
+SECRET_KEY # the AWS secret for the access key
+
+
