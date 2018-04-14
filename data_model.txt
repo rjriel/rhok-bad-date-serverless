@@ -17,7 +17,7 @@ submitter_contact_detail: string
 comments: {k:v}[]
 public_incident_description: string
 
-comments {user: uuid
+comments {user: string
     created: date/timestamp
     comment: string}
 
