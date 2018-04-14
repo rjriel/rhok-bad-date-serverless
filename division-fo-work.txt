@@ -9,6 +9,7 @@ user_management:
 	user_register: username (string), password (string)
 	user_login: username (string), password (string)
 	user_report_retreival: username (string)
+	validate_user_roll: user_id (string) #IAM role string, back-end-only not API
 	anonymous_report_retreival: incident_id(uuid)[optional]
 	anonymous_report_update: incident_id(uuid), see_schema(hash-map)
 
