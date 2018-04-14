@@ -1,0 +1,490 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This API will define the user specs of how incident report management will work.",
+        "version": "1.0.0",
+        "title": "RHOK BAD DATE APIs",
+        "termsOfService": "http://swagger.io/terms/",
+        "contact": {
+            "email": "apiteam@swagger.io"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        }
+    },
+    "basePath": "/v2",
+    "tags": [
+        {
+            "name": "Incident",
+            "description": "Everything about Bad Date Incident",
+            "externalDocs": {
+                "description": "Find out more",
+                "url": "http://swagger.io"
+            }
+    }
+  ],
+    "schemes": [
+    "http"
+  ],
+    "paths": {
+        "/register": {
+            "post": {
+                "tags": [
+          "user"
+        ],
+                "summary": "Registers a new user",
+                "description": "",
+                "operationId": "register",
+                "consumes": [
+          "application/json"
+        ],
+                "produces": [
+          "application/json"
+        ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Registers the new user in the system.",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/User"
+                        }
+          }
+        ],
+                "responses": {
+                    "200": {
+                        "description": "Record Saved."
+                    }
+                },
+                "x-amazon-apigateway-integration": {
+                    "responses": {
+                        "default": {
+                            "statusCode": "200"
+                        }
+                    },
+                    "uri": "http://rhk-demo-endpoint.execute-api.com/dbl/register",
+                    "passthroughBehavior": "when_no_match",
+                    "httpMethod": "POST",
+                    "type": "http"
+                }
+            }
+        },
+        "/login": {
+            "post": {
+                "tags": [
+          "user"
+        ],
+                "summary": "Logins the user.",
+                "description": "",
+                "operationId": "login",
+                "consumes": [
+          "application/json"
+        ],
+                "produces": [
+          "application/json"
+        ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Registers the new user in the system.",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/User"
+                        }
+          }
+        ],
+                "responses": {
+                    "200": {
+                        "description": "Record Saved."
+                    }
+                },
+                "x-amazon-apigateway-integration": {
+                    "responses": {
+                        "default": {
+                            "statusCode": "200"
+                        }
+                    },
+                    "uri": "http://rhk-demo-endpoint.execute-api.com/dbl/login",
+                    "passthroughBehavior": "when_no_match",
+                    "httpMethod": "POST",
+                    "type": "http"
+                }
+            }
+        },
+        "/incident": {
+            "put": {
+                "tags": [
+          "incident"
+        ],
+                "summary": "Get an existing Incident",
+                "description": "",
+                "operationId": "updateIncident",
+                "consumes": [
+          "application/json"
+        ],
+                "produces": [
+          "application/json"
+        ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Incident object that needs to be updated to the store",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Incident"
+                        }
+          }
+        ],
+                "responses": {
+                    "200": {
+                        "description": "Update saved."
+                    }
+                },
+                "x-amazon-apigateway-integration": {
+                    "responses": {
+                        "default": {
+                            "statusCode": "200"
+                        }
+                    },
+                    "uri": "http://rhk-demo-endpoint.execute-api.com/dbl/update-incident",
+                    "passthroughBehavior": "when_no_match",
+                    "httpMethod": "PUT",
+                    "type": "http"
+                }
+            },
+            "post": {
+                "tags": [
+          "incident"
+        ],
+                "summary": "Add a new Incident",
+                "description": "",
+                "operationId": "addIncident",
+                "consumes": [
+          "application/json"
+        ],
+                "produces": [
+          "application/json"
+        ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Incident object that needs to be updated to the store",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Incident"
+                        }
+          }
+        ],
+                "responses": {
+                    "200": {
+                        "description": "Record Saved."
+                    }
+                },
+                "x-amazon-apigateway-integration": {
+                    "responses": {
+                        "default": {
+                            "statusCode": "200"
+                        }
+                    },
+                    "uri": "http://rhk-demo-endpoint.execute-api.com/dbl/create-incident",
+                    "passthroughBehavior": "when_no_match",
+                    "httpMethod": "POST",
+                    "type": "http"
+                }
+            },
+            "delete": {
+                "tags": [
+          "incident"
+        ],
+                "summary": "Delete the existing Incident",
+                "description": "",
+                "operationId": "deleteIncident",
+                "consumes": [
+          "application/json"
+        ],
+                "produces": [
+          "application/json"
+        ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The uuid for the incident",
+                        "required": true,
+                        "type": "string"
+          }
+        ],
+                "responses": {
+                    "200": {
+                        "description": "Record Deleted."
+                    }
+                },
+                "x-amazon-apigateway-integration": {
+                    "responses": {
+                        "default": {
+                            "statusCode": "200"
+                        }
+                    },
+                    "uri": "http://rhk-demo-endpoint.execute-api.com/dbl/delete-incident",
+                    "passthroughBehavior": "when_no_match",
+                    "httpMethod": "DELETE",
+                    "type": "http"
+                }
+            },
+            "get": {
+                "tags": [
+          "incident"
+        ],
+                "summary": "Get the existing Incident",
+                "description": "",
+                "operationId": "getIncident",
+                "consumes": [
+          "application/json"
+        ],
+                "produces": [
+          "application/json"
+        ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The uuid for the incident",
+                        "required": true,
+                        "type": "string"
+          }
+        ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Incident"
+                            }
+                        }
+                    }
+                },
+                "x-amazon-apigateway-integration": {
+                    "responses": {
+                        "default": {
+                            "statusCode": "200"
+                        }
+                    },
+                    "uri": "http://rhk-demo-endpoint.execute-api.com/dbl/get-incident",
+                    "passthroughBehavior": "when_no_match",
+                    "httpMethod": "GET",
+                    "type": "http"
+                }
+            }
+        },
+        "/incident/public": {
+            "get": {
+                "tags": [
+          "incident"
+        ],
+                "summary": "Get public view of all incidents.",
+                "description": "",
+                "operationId": "searchIncident",
+                "consumes": [
+          "application/json"
+        ],
+                "produces": [
+          "application/json"
+        ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "The uuid for the incident",
+                        "required": false,
+                        "type": "string"
+          }
+        ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Incident"
+                            }
+                        }
+                    }
+                },
+                "x-amazon-apigateway-integration": {
+                    "responses": {
+                        "default": {
+                            "statusCode": "200"
+                        }
+                    },
+                    "uri": "http://rhk-demo-endpoint.execute-api.com/dbl/public",
+                    "passthroughBehavior": "when_no_match",
+                    "httpMethod": "GET",
+                    "type": "http"
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Offender": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "age": {
+                    "type": "string"
+                },
+                "hair_colour": {
+                    "type": "string"
+                },
+                "hair_style": {
+                    "type": "string"
+                },
+                "height": {
+                    "type": "string",
+                    "description": "General height"
+                },
+                "weight": {
+                    "type": "string",
+                    "description": "estimated weight or build type"
+                },
+                "build": {
+                    "type": "string",
+                    "description": "Heavy, athletic etc"
+                },
+                "clothing": {
+                    "type": "string",
+                    "description": "defines the clothing they were wearing"
+                },
+                "tatoos": {
+                    "type": "string",
+                    "description": ""
+                },
+                "scars": {
+                    "type": "string",
+                    "description": ""
+                },
+                "smells": {
+                    "type": "string",
+                    "description": ""
+                },
+                "accent": {
+                    "type": "string",
+                    "description": ""
+                },
+                "skin_colour": {
+                    "type": "string",
+                    "description": ""
+                },
+                "eye_colour": {
+                    "type": "string",
+                    "description": ""
+                },
+                "facial_description": {
+                    "type": "string",
+                    "description": ""
+                },
+                "extra_details": {
+                    "type": "string",
+                    "description": ""
+                },
+                "contact_type": {
+                    "type": "string",
+                    "description": ""
+                },
+                "contaact_details": {
+                    "type": "string",
+                    "description": ""
+                }
+            }
+        },
+        "Car": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                }
+            }
+        },
+        "Incident": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "submitter_id": {
+                    "type": "string"
+                },
+                "updated": {
+                    "type": "boolean"
+                },
+                "incident_date": {
+                    "type": "string"
+                },
+                "incident_type": {
+                    "type": "array",
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "incident_descriptor": {
+                    "type": "string"
+                },
+                "car": {
+                    "$ref": "#/definitions/Car"
+                },
+                "location": {
+                    "type": "string"
+                },
+                "offender_details": {
+                    "$ref": "#/definitions/Offender"
+                },
+                "incident_description": {
+                    "type": "string"
+                },
+                "extra_details": {
+                    "type": "string"
+                },
+                "repeat_offender": {
+                    "type": "boolean"
+                },
+                "incident_report_date": {
+                    "type": "string"
+                },
+                "submitter_contact_details": {
+                    "type": "string"
+                },
+                "submitter_contact_method": {
+                    "type": "string"
+                }
+               }
+        },
+        "User": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                }
+            }
+        }
+    },
+    "externalDocs": {
+        "description": "Find out more about Swagger",
+        "url": "http://swagger.io"
+    }
+}
