@@ -1,9 +1,9 @@
 base_CRUD:
-	incident_create: see_schema:(hash-map) - uuid
-	incident_update: incident_id (string), see_schema (hash-map) - uuid
-	incident_delete: incident_id (uuid) - null
-	incident_retrieve: incident_id: (uuid)[optional] - see_schema(hash-map)[]
-  anonymous_incident_retreive: incident_id(uuid)[optional] - string[]
+	(DONE) incident_create: see_schema:(hash-map) - uuid
+	(Wendy and Oliver) incident_update: incident_id (string), see_schema (hash-map) - uuid
+	(DONE) incident_delete: incident_id (uuid) - null
+	(Roy) incident_retrieve: incident_id: (uuid)[optional] - see_schema(hash-map)[]
+  	(Patrick) anonymous_incident_retreive: incident_id(uuid)[optional] - string[]
 	incident_add_comment: incident_id: (uuid), comment (string) - uuid
 
 user_management:
