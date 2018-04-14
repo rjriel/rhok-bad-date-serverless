@@ -14,9 +14,12 @@ incident_report_date: date/timestamp
 updated: date/timestamp
 submitter_contact_method: string
 submitter_contact_detail: string
-comments: string[]
+comments: {k:v}[]
 public_incident_description: string
 
+comments {user: uuid
+    created: date/timestamp
+    comment: string}
 
 
 car {plate_number: string
