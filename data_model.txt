@@ -9,6 +9,12 @@ location: string
 offender: {k:v}
 incident_description: string
 extra_details: string
+repeat_offender: bool
+incident_report_date: date/timestamp
+updated: date/timestamp
+submitter_contact_method: string
+submitter_contact_detail: string
+
 
 
 car {plate_number: string
