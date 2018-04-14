@@ -14,6 +14,7 @@ incident_report_date: date/timestamp
 updated: date/timestamp
 submitter_contact_method: string
 submitter_contact_detail: string
+comments: string[]
 
 
 
