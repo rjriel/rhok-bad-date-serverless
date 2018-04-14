@@ -1,5 +1,7 @@
 import boto3
+import os
 import hashlib
+import uuid
 from boto3.dynamodb.conditions import Key
 
 def lambda_handler(event, context):
@@ -11,7 +13,10 @@ def lambda_handler(event, context):
   )
   if len(response):
     if response['Items'][0]['password'] == hashed_passwd:
-      return True
+      token = str(uuid.uuid4())
+      token_table = dynamodb.Table('token')
+      token_table.put_item(Item={'username': event['name'], 'token': token, 'ttl': 3600 })
+      return token
     else:
       return False
   else:
