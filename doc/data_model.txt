@@ -52,7 +52,6 @@ incident_report:
 						contact_detail: string}
 
 user:
-	user_id: string PK
-	user_password_hash: string
-	user_role: string
-	user_name: string
+	password: string
+	role: string
+	username: string

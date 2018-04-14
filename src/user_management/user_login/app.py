@@ -7,7 +7,7 @@ def lambda_handler(event, context):
   dynamodb = boto3.resource('dynamodb', region_name='ca-central-1')
   table = dynamodb.Table('user')
   response = table.query(
-    KeyConditionExpression=Key('username').eq(event['username'])
+    KeyConditionExpression=Key('username').eq(event['name'])
   )
   if len(response):
     if response['Items'][0]['password'] == hashed_passwd:
@@ -20,4 +20,4 @@ def lambda_handler(event, context):
 def hash_password(passwd):
   passwd_hash = hashlib.sha256()
   passwd_hash.update(passwd.encode('utf-8'))
-  return passwd_hash.digest()
+  return passwd_hash.hexdigest()
