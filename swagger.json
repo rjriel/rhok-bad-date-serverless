@@ -340,7 +340,7 @@
                 "age": {
                     "type": "string"
                 },
-				"gender": {
+                "gender": {
                     "type": "string"
                 },
                 "hair_colour": {
@@ -349,7 +349,7 @@
                 "hair_style": {
                     "type": "string"
                 },
-				"facial_hair": {
+                "facial_hair": {
                     "type": "string"
                 },
                 "height": {
@@ -488,7 +488,13 @@
                     "type": "string"
                 },
                 "comments": {
-                    "$ref": "#/definitions/Comment"
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Comment"
+                    }
+                },
+                "public_incident_description": {
+                    "type": "string"
                 }
             }
         },
