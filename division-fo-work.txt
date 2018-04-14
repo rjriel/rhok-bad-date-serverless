@@ -1,17 +1,15 @@
 base_CRUD:
-	incident_create: see_schema:(hash-map)
-	incident_update: incident_id (string), see_schema (hash-map)
-	incident_delete: incident_id (uuid)
-	incident_retrieve: incident_id: (uuid)
-	incident_add_comment: incident_id: (uuid), comment (string)
+	incident_create: see_schema:(hash-map) - uuid
+	incident_update: incident_id (string), see_schema (hash-map) - uuid
+	incident_delete: incident_id (uuid) - null
+	incident_retrieve: incident_id: (uuid)[optional] - see_schema(hash-map)[]
+  anonymous_incident_retreive: incident_id(uuid)[optional] - string[]
+	incident_add_comment: incident_id: (uuid), comment (string) - uuid
 
 user_management:
-	user_register: username (string), password (string)
-	user_login: username (string), password (string)
-	user_report_retreival: username (string)
-	validate_user_roll: user_id (string) #IAM role string, back-end-only not API
-	anonymous_report_retreival: incident_id(uuid)[optional]
-	anonymous_report_update: incident_id(uuid), see_schema(hash-map)
+	user_register: username (string), password (string) - null
+	user_login: username (string), password (string) - string # user role
+	validate_user_role: user_id (string) - string # IAM role string, back-end-only not API
 
 Stretch fns:
 	user_remove: user_id(string)
