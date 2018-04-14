@@ -7,9 +7,10 @@ base_CRUD:
 	incident_add_comment: incident_id: (uuid), comment (string) - uuid
 
 user_management:
-	user_register: username (string), password (string) - null
-	user_login: username (string), password (string) - string # user role
-	validate_user_role: user_id (string) - string # IAM role string, back-end-only not API
+	Asignee: Jacob Rahme
+		user_register: username (string), password (string) - null
+		user_login: username (string), password (string) - string # user role
+		validate_user_role: user_id (string) - string # IAM role string, back-end-only not API
 
 Stretch fns:
 	user_remove: user_id(string)
