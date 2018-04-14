@@ -1,0 +1,7 @@
+Name of the file must be uniform (in this case app.py was the agreed upon name)
+
+The entrypoint of the fucntion must be uniform (in this case the name is lambda_handler)
+
+There is 1gb of space on the filesystem available during the execution of hte lambda function
+
+State does NOT persist between function calls https://docs.aws.amazon.com/lambda/latest/dg/getting-started.html 
