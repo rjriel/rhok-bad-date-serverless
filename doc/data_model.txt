@@ -1,6 +1,6 @@
 incident_report:
 	incident_id : uuid (not provided on create)
-	user_id: string
+	user_name: string
 	updated: bool
 	incident_date : date/timestamp
 	incident_type: string[]
@@ -20,9 +20,9 @@ incident_report:
 	
 	# (not provided on create)
 	comments {
-		user: string
-	    	created: date/timestamp
-	    	comment: string}
+		user_name: string
+	  created: date/timestamp
+	  comment: string}
 	
 	
 	car {
