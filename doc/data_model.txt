@@ -20,9 +20,9 @@ incident_report:
 	
 	# (not provided on create)
 	comments {
-		user: string
-	    	created: date/timestamp
-	    	comment: string}
+		user_name: string
+	  created: date/timestamp
+	  comment: string}
 	
 	
 	car {
