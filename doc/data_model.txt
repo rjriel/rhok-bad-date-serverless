@@ -18,40 +18,44 @@ incident_report:
 	comments: {k:v}[]
 	public_incident_description: string (not provided on create)
 	
-	comments {user: string
-	    created: date/timestamp
-	    comment: string}
+	# (not provided on create)
+	comments {
+		user: string
+	    	created: date/timestamp
+	    	comment: string}
 	
 	
-	car {plate_number: string
-			plate_province: string
-			model: string
-			type: string
-			make: string
-			extra_details: string}
+	car {
+		plate_number: string
+		plate_province: string
+		model: string
+		type: string
+		make: string
+		extra_details: string}
 	
-	offender {name: string
-						age: string
-						gender: string
-						hair_colour: string
-						hair_style: string
-						facial_hair: string
-						height: string
-						weight: string
-						build: string
-						clothing: string string
-						tattoos: string
-						scars: string
-						smell: string
-						accent: string
-						skin_colour: string
-						eye_colour: string
-						facial_description: string
-						extra_details: string
-						contact_type: string
-						contact_detail: string}
+	offender {
+		name: string
+		age: string
+		gender: string
+		hair_colour: string
+		hair_style: string
+		facial_hair: string
+		height: string
+		weight: string
+		build: string
+		clothing: string string
+		tattoos: string
+		scars: string
+		smell: string
+		accent: string
+		skin_colour: string
+		eye_colour: string
+		facial_description: string
+		extra_details: string
+		contact_type: string
+		contact_detail: string}
 
 user:
 	user_name: string (primary key)
 	user_password_hash: string
-user_role: string
+	user_role: string
