@@ -1,6 +1,6 @@
 incident_report:
-	incident_id : uuid
-	submitter_id : string
+	incident_id : uuid (not provided on create)
+	user_id: string
 	updated: bool
 	incident_date : date/timestamp
 	incident_type: string[]
@@ -16,7 +16,7 @@ incident_report:
 	submitter_contact_method: string
 	submitter_contact_detail: string
 	comments: {k:v}[]
-	public_incident_description: string
+	public_incident_description: string (not provided on create)
 	
 	comments {user: string
 	    created: date/timestamp
@@ -52,7 +52,6 @@ incident_report:
 						contact_detail: string}
 
 user:
-	user_id: string PK
+	user_name: string (primary key)
 	user_password_hash: string
-	user_role: string
-	user_name: string
+user_role: string
