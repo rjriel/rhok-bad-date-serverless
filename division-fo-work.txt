@@ -1,0 +1,18 @@
+base_CRUD:
+	incident_create: see_schema:(hash-map)
+	incident_update: incident_id (string), see_schema (hash-map)
+	incident_delete: incident_id (uuid)
+	incident_retrieve: incident_id: (uuid)
+	incident_add_comment: incident_id: (uuid), comment (string)
+
+user_management:
+	user_register: username (string), password (string)
+	user_login: username (string), password (string)
+	user_report_retreival: username (string)
+	anonymous_report_retreival: incident_id(uuid)[optional]
+	anonymous_report_update: incident_id(uuid), see_schema(hash-map)
+
+Stretch fns:
+	user_remove: user_id(string)
+	record_admin_action: user_id(string, action(string)
+	admin_add: username (string), password (string)
