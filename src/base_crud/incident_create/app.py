@@ -21,15 +21,15 @@ def get_uuid():
 
 # ----- ^^^^^^^^^ common code to all lambdas ---------------
 
-def lambda_handler(event, context):
+def lambda_handler(eventjson, context):
     table = get_table()
     
-    pprint(event)
+    pprint(eventjson)
     
     print("Adding incident for user", event['user_name'])
 
     uuid = get_uuid()
-    event['incident_id'] = uuid
+    eventjson['incident_id'] = uuid
     table.put_item(
        Item=event
     )
