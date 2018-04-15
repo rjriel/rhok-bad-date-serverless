@@ -183,7 +183,7 @@ Lambda functions are found under the src directory of this repository, and can b
 
 ## API Gateway
 
-The API gateway used for this app is described with the swagger documentation and code provided in the repo, please refer to that for deploying the API Gateway API endpoints for the bad-date app.
+The API gateway used for this app is described with the swagger.json file in the $REPO_HOME/src/swagger.json file, and can be imported directly into the AWS API Gateway console
 
 Documentation about this API implmentation can be found in the $REPO_ROOT/doc directory
 
@@ -199,9 +199,9 @@ Documentation about this API implmentation can be found in the $REPO_ROOT/doc di
 
 * Identity Sources:
 
-  * Query String : username
+  - Query String : username
 
-	* Query String : authorization
+	- Query String : authorization
 
 
 ### Authroized API's
