@@ -65,7 +65,9 @@ This role should have the identity providers apigateway.amazonaws.com and lambda
 
 ## Database
 
-Three dynamodb tables are needed
+Three dynamodb tables are needed, the details requried for creating them can be found below. 
+
+Details regarding the data modeling used for these tables can be found in $REPO_DIR/doc/data_model.txt
 
 ### incident_report
 
@@ -197,11 +199,11 @@ Documentation about this API implmentation can be found in the $REPO_ROOT/doc di
 
 * Authroization Caching: 0 (Not enabled)
 
-* Identity Sources:
+* Identity Sources
 
-  - Query String : username
+  * Query String : username
 
-	- Query String : authorization
+	* Query String : authorization
 
 
 ### Authroized API's
