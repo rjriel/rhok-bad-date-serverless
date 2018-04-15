@@ -2,6 +2,7 @@ from uuid import uuid4
 import boto3
 import json
 import decimal
+from copy import deepcopy
 from pprint import pprint
 
 # ATTENTION: Execution role must be "bad-date"
@@ -19,20 +20,46 @@ def get_uuid():
     return str(uuid4().hex)
     
 
+def remove_empty_string_attributes(input: dict):
+    """DynamoDB does not yet support attribute that have an emptry string as value !!!!
+    This is discussed in many places on the web, including bug submissions in AWS. 
+    As of June 2017, the comment was "this will be fixed at some unknown time in 2018
+    """
+    new_struct = deepcopy(input)
+    for item, value in input.items():
+        if value == '':
+            print("Warning: removing empty attribute", item)
+            del new_struct[item]
+        elif type(value) == dict:
+            new_struct[item] = remove_empty_string_attributes(value)
+            
+    return new_struct
+
+
+            
 # ----- ^^^^^^^^^ common code to all lambdas ---------------
 
-def lambda_handler(eventjson, context):
+def lambda_handler(event, context):
     table = get_table()
     
-    pprint(eventjson)
+    # pprint(event)
+    usernameFromQuery = event["params"]["querystring"]["username"]
     
-    print("Adding incident for user", event['user_name'])
-
+    print("Adding incident for user", usernameFromQuery)
+    
     uuid = get_uuid()
-    eventjson['incident_id'] = uuid
+    
+    incidentFromPost = event["body-json"]
+    incidentFromPost["incident_id"] = uuid
+    incidentFromPost["user_name"] = usernameFromQuery
+    
+    event['incident_id'] = uuid
+    # pprint(incidentFromPost)
+    incidentFromPost = remove_empty_string_attributes(incidentFromPost)
+    
     table.put_item(
-       Item=event
+        TableName="incident_report",
+        Item=incidentFromPost
     )
         
     return uuid
-
