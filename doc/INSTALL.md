@@ -199,8 +199,9 @@ Documentation about this API implmentation can be found in the $REPO_ROOT/doc di
 
 * Identity Sources:
 
-  * Query String : username
-	* Query String : authorization
+  - Query String : username
+
+	- Query String : authorization
 
 
 ### Authroized API's
