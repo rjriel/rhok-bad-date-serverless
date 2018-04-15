@@ -24,7 +24,7 @@ def lambda_handler(event, context):
         Key=get_key_json(event['incident_id']),
         UpdateExpression="SET #comments = list_append(#comments, :vals)",
         ExpressionAttributeValues={
-            ':vals': [event['comment']]
+            ':vals': [event['comment_details']]
         },
         ExpressionAttributeNames={"#comments": "comments"},
         ReturnValues="UPDATED_NEW"
