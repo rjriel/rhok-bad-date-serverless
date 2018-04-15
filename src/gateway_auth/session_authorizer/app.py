@@ -18,9 +18,12 @@ def lambda_handler(event, ctx):
   )
   if debug:
     print("[DEBUG] is user allowed?")
-    print(is_user_allowed(dynamodb,event,username))
-    print("[DEBUG] token from dynamo is")
-    print('    {}'.format(response['Items'][0].get('token')))
+    print("    {}".format(is_user_allowed(dynamodb,event,username)))
+    if 0 in response['Items']:
+        print("[DEBUG] token from dynamo is")
+        print('    {}'.format(response['Items'][0].get('token')))
+    else:
+      print('[DEBUG] dynamo db request gave no items')
     print("[DEBUG] token from query string is")
     print('    {}'.format(token))
 
@@ -88,7 +91,7 @@ def generate_policy(principalId, effect, resource):
 
 if __name__ == '__main__':
   os.environ['DEBUG'] = '1'
-  lambda_handler({'queryStringParameters': {'username' : 'jacob-test', 
+  lambda_handler({'queryStringParameters': {'username' : 'barkbark', 
                                             'password' : '1234567', 
                                             'authorization' : 'd5050cd0-8e89-4061-b815-1f972b7aa5a3'},
                   'username' : 'jacob-test', 
