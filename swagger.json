@@ -335,7 +335,7 @@
             "type": "object",
             "properties": {
                 "name": {
-                    "type": "integer"
+                    "type": "string"
                 },
                 "age": {
                     "type": "string"
@@ -404,7 +404,7 @@
                     "type": "string",
                     "description": ""
                 },
-                "contaact_details": {
+                "contact_details": {
                     "type": "string",
                     "description": ""
                 }
