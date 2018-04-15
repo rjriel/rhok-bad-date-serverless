@@ -8,6 +8,7 @@ from decimal import Decimal
 from boto3.dynamodb.conditions import Key
 
 def lambda_handler(event, context):
+  debug = os.getenv('DEBUG') is '1'
   hashed_passwd = hash_password(event['password'])
   dynamodb = boto3.resource('dynamodb', region_name='ca-central-1')
   table = dynamodb.Table(os.getenv('USER_TABLE', 'user'))
@@ -24,16 +25,17 @@ def lambda_handler(event, context):
       token_table.put_item(Item={'username': username,
                                 'token': token,
                                 'ttl': ttl})
-      if os.getenv('DEBUG') is '1':
+      if debug:
         print(token)
       return token
 
     else:
-      if os.getenv('DEBUG') is '1':
+      if debug:
         print(False)
       return False
-    
-  print(False)
+  
+  if debug:
+    print(False)
   return False
 
 def hash_password(passwd):
