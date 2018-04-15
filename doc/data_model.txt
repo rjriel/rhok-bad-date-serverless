@@ -21,8 +21,8 @@ incident_report:
 	# (not provided on create)
 	comments {
 		user_name: string
-	  created: date/timestamp
-	  comment: string}
+	  	created: date/timestamp
+		comment: string}
 	
 	
 	car {
@@ -58,4 +58,4 @@ incident_report:
 user:
 	password: string
 	role: string
-	username: string
+	user_name: string
