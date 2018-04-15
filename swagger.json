@@ -334,16 +334,22 @@
         "Offender": {
             "type": "object",
             "properties": {
-                "id": {
+                "name": {
                     "type": "integer"
                 },
                 "age": {
+                    "type": "string"
+                },
+                "gender": {
                     "type": "string"
                 },
                 "hair_colour": {
                     "type": "string"
                 },
                 "hair_style": {
+                    "type": "string"
+                },
+                "facial_hair": {
                     "type": "string"
                 },
                 "height": {
@@ -362,7 +368,7 @@
                     "type": "string",
                     "description": "defines the clothing they were wearing"
                 },
-                "tatoos": {
+                "tattoos": {
                     "type": "string",
                     "description": ""
                 },
@@ -407,10 +413,22 @@
         "Car": {
             "type": "object",
             "properties": {
-                "id": {
-                    "type": "integer"
+                "plate_number": {
+                    "type": "string"
                 },
-                "name": {
+                "plate_province": {
+                    "type": "string"
+                },
+                "model": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                },
+                "make": {
+                    "type": "string"
+                },
+                "extra_details": {
                     "type": "string"
                 }
             }
@@ -470,7 +488,13 @@
                     "type": "string"
                 },
                 "comments": {
-                    "$ref": "#/definitions/Comment"
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Comment"
+                    }
+                },
+                "public_incident_description": {
+                    "type": "string"
                 }
             }
         },
