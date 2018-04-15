@@ -12,7 +12,7 @@ def lambda_handler(event, ctx):
   token = event['queryStringParameters'].get('authorization')
 
   response = table.query(
-    KeyConditionExpression=Key('username').eq(username)
+    KeyConditionExpression=Key('user_name').eq(username)
   )
   if response.get('Items'):
     # this is hard coded to the role used for the lambda execution

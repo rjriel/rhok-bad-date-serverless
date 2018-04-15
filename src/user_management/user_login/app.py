@@ -22,7 +22,7 @@ def lambda_handler(event, context):
       ttl = calendar.timegm(time.gmtime()) + (60 * Decimal(os.getenv('MINUTES_TO_LIVE', '60')))
       token = str(uuid.uuid4())
       token_table = dynamodb.Table('token')
-      token_table.put_item(Item={'username': username,
+      token_table.put_item(Item={'user_name': username,
                                 'token': token,
                                 'ttl': ttl})
       if debug:
