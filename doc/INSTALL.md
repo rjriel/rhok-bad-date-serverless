@@ -2,7 +2,7 @@
 
 ## IAM
 
-A Iam role is required for the app to run, and should be authorized for the api gateway, dynamoDB, and Lambda
+A IAM role is required for the app to run, and should be authorized for the api gateway, DynamoDB, and Lambda
 
 The roll must be named bad-date, and implement the following Policies
 
@@ -65,7 +65,7 @@ This role should have the identity providers apigateway.amazonaws.com and lambda
 
 ## Database
 
-Three dynamodb tables are needed, the details requried for creating them can be found below. 
+Three DynamoDB tables are needed, the details required for creating them can be found below. 
 
 Details regarding the data modeling used for these tables can be found in $REPO_DIR/doc/data_model.txt
 
@@ -173,7 +173,7 @@ Lambda functions are found under the src directory of this repository, and can b
 
 * environment variables: 
 
-### Requestion Autohrizor
+### Request Authorizer
 
 * name: request_authorizer
 
@@ -187,17 +187,17 @@ Lambda functions are found under the src directory of this repository, and can b
 
 The API gateway used for this app is described with the swagger.json file in the $REPO_HOME/src/swagger.json file, and can be imported directly into the AWS API Gateway console
 
-Documentation about this API implmentation can be found in the $REPO_ROOT/doc directory
+Documentation about this API implementation can be found in the $REPO_ROOT/doc directory
 
 ### Authorizers
 
 #### request-authorizer
 
-* Lambad Function: request_authorizer
+* Lambda Function: request_authorizer
 
-* Lambad Event Payload: Request
+* Lambda Event Payload: Request
 
-* Authroization Caching: 0 (Not enabled)
+* Authorization Caching: 0 (Not enabled)
 
 * Identity Sources
 
@@ -206,6 +206,6 @@ Documentation about this API implmentation can be found in the $REPO_ROOT/doc di
   * Query String : authorization
 
 
-### Authroized API's
+### Authorized API's
 
-All '/incident' API endpoints need to implement the request-authorizer at the Method REquest step. 
+All '/incident' API endpoints need to implement the request-authorizer at the Method Request step. 
