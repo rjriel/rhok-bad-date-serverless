@@ -203,7 +203,7 @@ Documentation about this API implmentation can be found in the $REPO_ROOT/doc di
 
   * Query String : username
 
-	* Query String : authorization
+  * Query String : authorization
 
 
 ### Authroized API's
